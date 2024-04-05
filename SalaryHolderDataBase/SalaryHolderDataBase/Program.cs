@@ -18,6 +18,12 @@ builder.Services.AddScoped<IRepository<Bogcha>>(
        return new Bogcha_DapperRepository(_connStr);
    });
 
+builder.Services.AddScoped<IRepository<SalTable>>(
+   p =>
+   {
+       return new Sal_DapperRepository(_connStr);
+   });
+
 builder.Services.AddScoped<I_User_Repo>(provider =>
     new User_DapperRepository(_connStr));
 
@@ -42,6 +48,6 @@ app.UseAuthorization();
 
 app.MapControllerRoute(
     name: "default",
-    pattern: "{controller=User}/{action=Index}/{id?}");
+    pattern: "{controller=Sal}/{action=Index}/{id?}");
 
 app.Run();

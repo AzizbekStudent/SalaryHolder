@@ -1,0 +1,63 @@
+﻿@model IEnumerable<SalaryHolderDataBase.DAL.Models.Bogcha>
+
+@{
+    ViewData["Title"] = "Детский Сад";
+}
+
+<h1>Детские Сады</h1>
+
+<p>
+    <a asp-action="Create">Добавить новый</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.BogCha_ID)
+            </th>
+            <th>
+                Название
+            </th>
+            <th>
+                Зарплата
+            </th>
+            <th>
+                Статус работы
+            </th>
+
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.BogCha_ID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Title)
+            </td>
+
+            <td>
+                @Html.DisplayFor(modelItem => item.Salary)
+            </td>
+            <td>
+                @{
+                    if (item.IsWorking)
+                    {
+                        @Html.Raw("Работаю")
+                    }
+                    else
+                    {
+                        @Html.Raw("Не работаю")
+                    }
+                }
+            </td>
+            <td>
+                @Html.ActionLink("Изменить", "Edit", new {  id=item.BogCha_ID  }) |
+                @Html.ActionLink("Детали", "Details", new {  id=item.BogCha_ID  })
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

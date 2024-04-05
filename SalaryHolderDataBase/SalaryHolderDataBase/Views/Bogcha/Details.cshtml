@@ -1,0 +1,79 @@
+﻿@model SalaryHolderDataBase.DAL.Models.Bogcha
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>Bogcha</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.BogCha_ID)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.BogCha_ID)
+        </dd>
+        <dt class = "col-sm-2">
+            Название
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Title)
+        </dd>
+        <dt class = "col-sm-2">
+            Описание
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Description)
+        </dd>
+        <dt class = "col-sm-2">
+            Дата началы работы
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.HireDate)
+        </dd>
+        <dt class = "col-sm-2">
+            Дата ухода
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.FireDate)
+        </dd>
+        <dt class = "col-sm-2">
+            Зарплата
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Salary)
+        </dd>
+        <dt class = "col-sm-2">
+            Статус работы
+        </dt>
+        <dd class="col-sm-10">
+            @if (Model.IsWorking)
+            {
+                <text>Работаю</text>
+            }
+            else
+            {
+                <text>Не работаю</text>
+            }
+        </dd>
+        <dt class = "col-sm-2">
+            Количество груп
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.GroupAmount)
+        </dd>
+        <dt class = "col-sm-2">
+            Имя Заведушего
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.ZavName)
+        </dd>
+    </dl>
+</div>
+<div>
+    @Html.ActionLink("Изменить", "Edit", new {  id = Model.BogCha_ID  }) |
+    <a asp-action="Index">Назад к листуt</a>
+</div>

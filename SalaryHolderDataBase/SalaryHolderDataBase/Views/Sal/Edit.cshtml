@@ -1,0 +1,71 @@
+﻿@model SalaryHolderDataBase.DAL.Models.SalTable
+
+@{
+    ViewData["Title"] = "Изменить";
+
+    var bogchaOptions = ViewBag.BogchaOptions as List<SelectListItem>;
+    if (bogchaOptions == null)
+    {
+        bogchaOptions = new List<SelectListItem>();
+    }
+}
+
+<h1>Edit</h1>
+
+<h4>SalTable</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Sal_ID" class="control-label"> Номер</label>
+                <input asp-for="Sal_ID" class="form-control" readonly />
+                <span asp-validation-for="Sal_ID" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="SalaryDate" class="control-label">День зарплаты</label>
+                <input asp-for="SalaryDate" class="form-control" />
+                <span asp-validation-for="SalaryDate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="SalaryAmount" class="control-label">Количество зарплаты</label>
+                <input asp-for="SalaryAmount" class="form-control" type="number" step="0.01" />
+                <span asp-validation-for="SalaryAmount" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="Description" class="control-label">Описание</label>
+                <select asp-for="Description" class="form-control">
+                    <option value="Полный">Полный</option>
+                    <option value="Половина">Половина</option>
+                    <option value="Отпуск">Отпуск</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="BogCha_ID" class="control-label">Детский Сад</label>
+                <select asp-for="BogCha_ID" id="BogCha_ID" class="form-control">
+                    <option value="">Выбрать детский сад</option>
+                    @foreach (var item in bogchaOptions)
+                    {
+                        <option value="@item.Value">@item.Text</option>
+                    }
+                </select>
+            </div>
+
+
+            <div class="form-group">
+                <input type="submit" value="Сохранить" class="btn btn-primary mt-4 mb-4" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Назад</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

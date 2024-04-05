@@ -1,0 +1,72 @@
+﻿@model SalaryHolderDataBase.DAL.Models.Bogcha
+
+@{
+    ViewData["Title"] = "Изменить";
+}
+
+<h1>Изменить</h1>
+
+<h4>Детский Сад</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="BogCha_ID" class="control-label"></label>
+                <input asp-for="BogCha_ID" class="form-control" readonly />
+                <span asp-validation-for="BogCha_ID" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Title" class="control-label">Название</label>
+                <input asp-for="Title" class="form-control" />
+                <span asp-validation-for="Title" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Description" class="control-label">Описание</label>
+                <input asp-for="Description" class="form-control" />
+                <span asp-validation-for="Description" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="HireDate" class="control-label">Дата начало работы</label>
+                <input asp-for="HireDate" class="form-control" />
+                <span asp-validation-for="HireDate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="FireDate" class="control-label">Дата ухода</label>
+                <input asp-for="FireDate" class="form-control" />
+                <span asp-validation-for="FireDate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Salary" class="control-label">Зарплата</label>
+                <input asp-for="Salary" class="form-control" type="number" step="0.01" />
+                <span asp-validation-for="Salary" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label for="IsWorking" class="control-label">Статус</label>
+                <select asp-for="IsWorking" class="form-control" id="IsWorking">
+                    <option value="true">Работаю</option>
+                    <option value="false">Не работаю</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label asp-for="GroupAmount" class="control-label">Количество Груп</label>
+                <input asp-for="GroupAmount" class="form-control" />
+                <span asp-validation-for="GroupAmount" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ZavName" class="control-label">Имя Заведуешего</label>
+                <input asp-for="ZavName" class="form-control" />
+                <span asp-validation-for="ZavName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Сохранить" class="btn btn-primary mt-4 mb-4" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Назад</a>
+</div>
+

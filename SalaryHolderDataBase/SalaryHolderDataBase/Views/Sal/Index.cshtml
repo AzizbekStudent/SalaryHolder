@@ -1,0 +1,59 @@
+﻿@model IEnumerable<SalaryHolderDataBase.DAL.Models.SalTable>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Зарплаты</h1>
+
+<p>
+    <a asp-action="Create">Создать новую заметку</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Sal_ID)
+            </th>
+            <th>
+                Дата зарплаты
+            </th>
+            <th>
+                Кол-во зарплаты
+            </th>
+            <th>
+                Описание
+            </th>
+            <th>
+                Детский Сад
+            </th>
+
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Sal_ID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SalaryDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SalaryAmount) сум
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Description)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Bogcha_.Title)
+            </td>
+            <td>
+                @Html.ActionLink("Изменить", "Edit", new {  id=item.Sal_ID  }) |
+                @Html.ActionLink("Детали", "Details", new {  id=item.Sal_ID  }) |
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

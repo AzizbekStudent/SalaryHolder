@@ -12,6 +12,7 @@ Begin
 			BogCha_ID
 		from SalaryTable
 		where UserID = @userID
+		order by Sal_ID desc
 	end try
 	begin catch
 		print Error_Message() + 'something went wrong in SalTable Get all'

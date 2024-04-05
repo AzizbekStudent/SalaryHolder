@@ -1,5 +1,5 @@
 ﻿Insert into UsersList (UserName, UserPassword)
-values ('DK', 'experiment')
+values ('Кариева Дилфуза Усмановна', 'Владелец')
 
 
 insert into Bogcha (Title, Description, HireDate, FireDate, Salary, IsWorking, GroupAmount, ZavName, UserID)
